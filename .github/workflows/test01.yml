@@ -1,0 +1,19 @@
+# .github/workflows/test01.yaml
+name: test01
+on:
+  workflow_dispatch:  
+jobs:
+  test01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out this repo
+        uses: actions/checkout@v2
+     #Setup Node
+      - name: Set up Node
+        uses: setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install backstopJS
+        run: npm install -g backstopjs
+      - name: Run BackstopJS
+        run: backstop init
